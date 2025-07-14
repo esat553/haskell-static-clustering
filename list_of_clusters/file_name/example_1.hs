@@ -1,0 +1,2 @@
+-- TODO: Insert a representative student submission that triggers this cluster,
+-- including the original GHC error message in a block comment.
