@@ -1,16 +1,19 @@
-data Suit = Club | Diamond | Heart | Spade
-  deriving (Eq)
+data ConflictingType = A | B deriving (Eq)
+data WrapperType = Wrap ConflictingType deriving (Eq)
 
-instance Eq Suit where
-  Club == Club = True
-  _ == _       = False
+instance Eq ConflictingType where
+    A == A = True
+    _ == _ = False
 
   {-
-  error:
-    Duplicate instance declarations:
-      instance Eq Suit -- Defined at Studentenlösung:2:13
-      instance Eq Suit -- Defined at Studentenlösung:4:10
+error:
+    • Overlapping instances for Eq ConflictingType
+        arising from the first field of ‘Wrap’ (type ‘ConflictingType’)
+      Matching instances:
+        instance Eq ConflictingType -- Defined at 1:40
+        instance Eq ConflictingType -- Defined at 4:10
+    • When deriving the instance for (Eq WrapperType)
   |
-2 |   deriving (Eq)
-  |             ^^
+2 | data WrapperType = Wrap ConflictingType deriving (Eq)
+  |                                                   ^^
   -}

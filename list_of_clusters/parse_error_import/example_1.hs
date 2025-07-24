@@ -1,10 +1,14 @@
-import Criterion.Main
+length' :: Num a => [a] -> a
+length' x = sum (map (\x->1) x)
+
+import Data.Char
+
+someFunction :: String -> String
+someFunction string = map (\x -> toUpper (x !! 0) ) (words string)
 
 {-
-error:
-    Could not find module ‘Criterion.Main’
-    Use -v to see a list of the files searched for.
+error: parse error on input ‘import’
   |
-1 | import Criterion.Main
-  | ^^^^^^^^^^^^^^^^^^^^^
--}
+4 | import Data.Char
+  | ^^^^^^
+  -}

@@ -1,5 +1,7 @@
-data Triple a a a = Triple a a a
-  deriving (Eq)
+instance Monoid where
+  mappend = op
+  mempty `mappend` a = a
+
   {-
   Studentenlösung:1:13-17: error:
     Conflicting definitions for ‘a’

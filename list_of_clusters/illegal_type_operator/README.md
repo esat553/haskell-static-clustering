@@ -1,5 +1,7 @@
 # Ungültiger Typ-Operator (Illegal Type Operator)
 
+> deprecated in in ghc > 8.10.2 
+
 ## Deutsche Beschreibung
 Dieser Fehler entsteht, wenn in einer Typsignatur ein ungültiger Operator verwendet wird. Meist passiert das durch die versehentliche Nutzung falscher Zeichen wie eines typografischen Minuszeichens `−` anstelle des korrekten ASCII-Zeichens `->` oder durch die fälschliche Verwendung von Operatoren wie `+` oder `:` als Typbestandteile.
 

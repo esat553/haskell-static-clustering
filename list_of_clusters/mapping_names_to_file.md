@@ -22,7 +22,7 @@
 | Variable nicht im Gültigkeitsbereich     | Variable Not in Scope                    | variable_not_in_scope            | not in scope |
 | Pattern Binding in Instanz               | Pattern Binding in Instance Declaration  | pattern_binding_in_instance      | pattern bindings.*not allowed in instance declaration |
 | Fehlendes Binding                        | Missing Binding                          | missing_binding                  | type signature.*lacks an accompanying binding |
-| Falsche Arität für Konstruktor           | Wrong Constructor Arity                   | wrong_constructor_arity          | the constructor ‘.*’ should have \d+ argument[s]?, but has been given \d+ |
+| Falsche Arität für Konstruktor         F  | Wrong Constructor Arity                   | wrong_constructor_arity          | the constructor ‘.*’ should have \d+ argument[s]?, but has been given \d+ |
 | Abweichende Arity                        | Inconsistent Arity                        | inconsistent_arity               | equations for .* have different numbers of arguments |
 | Constraint erwartet, aber Typ erhalten   | Constraint Expected, Got Type              | constraint_expected_got_type     | expected a constraint, but .* has kind |
 | Ungültige Typensignatur                  | Invalid Type Signature                     | invalid_type_signature           | (invalid|illegal) type signature |
@@ -54,7 +54,6 @@
 | Letzte Anweisung im 'do'-Block           | Last Statement in 'do' Block                 | last_statement_in_do_block       | the last statement in a 'do' block must be an expression |
 | Typed Hole                               | Typed Hole                                  | typed_hole                       | found hole: _ :: |
 | Ungültige Binding-Syntax                 | Invalid Binding Syntax                      | invalid_binding_syntax           | illegal binding of built-in syntax |
-| Fehlende Klammern im Range-Ausdruck      | Missing Parentheses in Range Expression      | missing_parentheses_in_range     | a section must be enclosed in parentheses |
 | Ungültiges Enum-Deriving                 | Invalid Enum Deriving                       | invalid_enum_deriving            | can't make a derived instance of ['‘`]Enum |
 | Ungültiges Deriving                      | Invalid Deriving                            | invalid_deriving                 | illegal deriving item |
 | Warnung                                  | Warning                                     | warning                          | warning |

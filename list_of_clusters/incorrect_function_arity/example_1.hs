@@ -1,17 +1,14 @@
-alleUnterschied :: Eq a => a -> a -> a -> Bool
-alleUnterschied (a, b, c) = (a == b) && (b == c)
-
+main = do
+    putStrLn "nein" main
 {-
 error:
-    • Couldn't match expected type ‘a -> a -> Bool’
-                  with actual type ‘Bool’
-    • Possible cause: ‘(&&)’ is applied to too many arguments
-      In the expression: (a == b) && (b == c)
-      In an equation for ‘alleUnterschied’:
-          alleUnterschied (a, b, c) = (a == b) && (b == c)
-    • Relevant bindings include
-        alleUnterschied :: a -> a -> a -> Bool (bound at Studentenlösung:2:1)
+    • Couldn't match expected type ‘t -> t’ with actual type ‘IO ()’
+    • The function ‘putStrLn’ is applied to two arguments,
+      but its type ‘String -> IO ()’ has only one
+      In a stmt of a 'do' block: putStrLn "nein" main
+      In the expression: do putStrLn "nein" main
+    • Relevant bindings include main :: t (bound at Studentenlösung:1:1)
   |
-2 | alleUnterschied (a, b, c) = (a == b) && (b == c)
-  |                             ^^^^^^^^^^^^^^^^^^^^
+2 |     putStrLn "nein" main
+  |     ^^^^^^^^^^^^^^^^^^^^
 -}
