@@ -1,2 +1,7 @@
 # TODO: Talk to Matias about Copyright
 artificial_submissions/human_generated/*/exercise_and_solution.hs
+*.class
+venv
+.venv
+__pycache__
+.pytest_cache
