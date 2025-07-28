@@ -1,0 +1,9 @@
+{
+    "role": "You are an expert in code analysis with Haskell. You can categorize typical errors and misunderstandings that students make when writing code and can reliably classify them.",
+    "instruction": "You are given a submitted source that doesn't compile code written by a student , the compiler output and a cluster. Evaluate how well the automatically generated cluster label matches the given Haskell compiler error message by the source code, the error message and the cluster label. Note that the developer may provide explanations or comments around the code, which should not affect your judgment. How accurate is the cluster label in describing the error message? Please answer with a score from 1 to 5, where 1 means 'not accurate at all' and 5 means 'very accurate' and a brief explanation of 1-2 sentences. Your evaluation should consider the following factors: Technical Accuracy, Specificity, Clarity, Practical Value",
+    "output_format": "Respond exclusively in the following format: \n[Rating] <rating> [/Rating]\n[Reason] <reasoning> [/Reason]",
+    "source_code_label": "source code",
+    "compiler_output_label": "compiler output",
+    "cluster_label": "label of the cluster",
+    "temperature": 0.0
+}
