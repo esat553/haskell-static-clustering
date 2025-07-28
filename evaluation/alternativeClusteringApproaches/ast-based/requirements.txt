@@ -1,0 +1,7 @@
+pandas
+numpy
+streamlit
+tree_sitter==0.20.4
+networkx
+plotly
+scikit-learn

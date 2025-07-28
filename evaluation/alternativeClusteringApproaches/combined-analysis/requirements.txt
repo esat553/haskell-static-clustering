@@ -1,0 +1,14 @@
+numpy
+pandas
+tqdm
+streamlit
+plotly
+tree_sitter==0.20.4
+scikit-learn
+networkx
+backoff
+umap-learn
+hdbscan
+python-dotenv
+google.genai
+google.api_core
