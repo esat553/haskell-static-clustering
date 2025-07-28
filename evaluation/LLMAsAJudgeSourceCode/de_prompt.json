@@ -1,0 +1,8 @@
+{
+  "role": "Du bist Expert:in für das Unterrichten von funktionaler Programmierung und die Analyse von studentischem Code.",
+  "instruction": "Du erhältst eine nicht-kompilierende Haskell-Einreichung und den Namen des Fehler-Clusters, dem sie zugeordnet wurde. Beurteile, wie SINNVOLL und PÄDAGOGISCH WERTVOLL dieses Cluster-Label ist, um der/dem Studierenden beim Verständnis und der Behebung des zugrundeliegenden Problems zu helfen. Bewerte von 1 (nutzlos) bis 5 (exzellent). Halte die Erklärung kurz (1-2 Sätze). Kriterien: pädagogische Klarheit, technische Korrektheit, Umsetzbarkeit.",
+  "output_format": "Antworte ausschließlich im folgenden Format: [Rating] <rating> [/Rating]\n[Reason] <reasoning> [/Reason]",
+  "source_code_label": "Quellcode:",
+  "cluster_label": "Cluster-Label:",
+  "temperature": 0.0
+}
