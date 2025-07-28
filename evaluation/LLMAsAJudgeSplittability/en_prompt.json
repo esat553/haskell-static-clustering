@@ -1,0 +1,9 @@
+{
+    "role": "You are an expert in the programming language Haskell, GHC compiler output, and Haskell education.",
+    "instruction": "You are given a cluster label and a set of student submissions that were all grouped into that cluster. Each submission contains the student's source code and the resulting GHC compiler error message.\n\nYour task is to evaluate the homogeneity of this cluster from a didactic perspective. Assess whether all submissions in this group represent the same fundamental problem or if the cluster should be split into more specific sub-groups for a clearer explanation in a lecture. The goal is to determine if a single, unified explanation would be sufficient for all students in this group.\n\nPlease answer with a score from 1 to 5, where 1 means 'very heterogeneous, should definitely be split' and 5 means 'very homogeneous, all errors share the same root cause'. Provide a brief explanation of 1-3 sentences for your rating.\n\nBase your evaluation on the following factors: Root Cause Similarity, Didactic Uniformity, Variance in Error Presentation",
+    "output_format": "Respond exclusively in the following format: \n[Rating] <rating> [/Rating]\n[Reason] <reasoning> [/Reason]",
+    "input_structure_note": "You will receive the cluster label first, followed by a list of submissions. Each submission will be clearly marked.",
+    "cluster_label": "label of the cluster",
+    "submissions_label": "submissions:",
+    "temperature": 0.0
+}
