@@ -1,0 +1,68 @@
+# License and Attribution
+
+## CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+
+To the extent possible under law, **Esat Akif Avci** has waived all copyright and related or neighboring rights to the code, scripts, and documentation in this repository.  
+You can copy, modify, distribute, and perform the work, even for commercial purposes, all without asking permission.
+
+For more information, please visit:  
+https://creativecommons.org/publicdomain/zero/1.0/
+
+---
+
+## Assignment of Rights for GATE/SI Project
+
+All files and source code located in the `implementation` directory are explicitly **not** covered by this license.  
+These files have been transferred to the official GATE/SI repository at [https://github.com/csware/si](https://github.com/csware/si) and are subject to the license terms and policies of that project.
+
+**By contributing these files, Esat Akif Avci assigns all intellectual property and copyright in these components to the GATE/SI project, maintained by Professor Sven Strickroth (LMU Munich).**
+
+Any use, modification, or redistribution of these files is governed exclusively by the rules and license of the [csware/si repository](https://github.com/csware/si).  
+For questions regarding these files, please contact Professor Sven Strickroth or the GATE/SI project maintainers.
+
+
+## Exceptions
+
+**The following files and directories are _not_ covered by the CC0 license:**
+
+- `artificial_submissions/human_generated/exercisesheet_01/exercise_and_solution.hs`
+- `artificial_submissions/human_generated/exercisesheet_02/exercise_and_solution.hs`
+- `artificial_submissions/human_generated/exercisesheet_03/exercise_and_solution.hs`
+- `artificial_submissions/human_generated/exercisesheet_04/exercise_and_solution.hs`
+- `artificial_submissions/human_generated/exercisesheet_05/exercise_and_solution.hs`
+- `artificial_submissions/human_generated/exercisesheet_06/exercise_and_solution.hs`
+- `artificial_submissions/human_generated/exercisesheet_07/exercise_and_solution.hs`
+- `artificial_submissions/human_generated/exercisesheet_08/exercise_and_solution.hs`
+- `artificial_submissions/human_generated/exercisesheet_09/exercise_and_solution.hs`
+- `artificial_submissions/human_generated/exercisesheet_10/exercise_and_solution.hs`
+
+These files are based on course materials from the "Programming and Modelling" course at LMU Munich and remain subject to the rights of the original authors.  
+Do **not** reuse these files for other purposes without explicit permission from LMU Munich or the respective copyright holders.
+
+---
+
+- `evaluation/alternativeClusteringApproaches/ast-based`
+- `evaluation/alternativeClusteringApproaches/combined-analysis`
+
+The content and methodology in these directories were inspired by Tang et al. (2024) [https://www.mdpi.com/2076-3417/15/7/3462],  
+which is published under the Creative Commons Attribution 4.0 International License (CC BY 4.0):  
+https://creativecommons.org/licenses/by/4.0/
+
+
+## Attribution Notice for Prompt Design and Evaluation Methodology
+
+The structure and methodology of the prompts and evaluation strategies used in this project were inspired by several recent publications on LLM-based code evaluation and automated feedback, including but not limited to:
+
+- **Akyash et al. (2025)**, "StepGrade: Grading Programming Assignments with Context-Aware LLMs"
+- **Wang et al. (2025)**, "LLM-as-a-Judge: Automating Error Analysis of Programming Assignments"
+- **Hackl et al. (2023)**, "LLM-as-a-Qualitative Judge"
+- **Chirkova et al. (2025)**, "Automated Error Feedback Using LLMs"
+- **Dinh et al. (2024)**, "SciEX: A Benchmark for Scientific LLM Evaluations"
+- **Yuan et al. (2023)**, "BatchEval: Benchmarking LLMs with Batched Evaluations"
+- **Chiang et al. (2023)**, "Can LLMs Effectively Evaluate Programming Assignments?"
+- **Alabdulwahab et al. (2025)**, "A Comparative Study of LLM Evaluation Strategies"
+
+The final prompt structure and evaluation criteria were developed **independently** and tailored specifically for the context of Haskell compiler error clustering.  
+Where applicable, attribution is provided in accordance with the respective license terms (e.g., CC BY 4.0).  
+For some papers (e.g., Akyash et al., 2025), no license information could be identified; in such cases, only conceptual inspiration was drawn without reusing any protected material.
+
