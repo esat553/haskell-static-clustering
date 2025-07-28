@@ -1,0 +1,1 @@
+Look into the mapping_names_to_file.md to get a comprehensive overview over the Clusters and their regex

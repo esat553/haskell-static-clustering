@@ -1,4 +1,3 @@
-hatte keine zeit sry :/
 
 {-
 Studentenlösung:1:24: error:
@@ -7,3 +6,4 @@ Studentenlösung:1:24: error:
 1 | hatte keine zeit sry :/
   |                        ^
 -}
+hatte keine zeit sry :/

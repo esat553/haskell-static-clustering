@@ -76,7 +76,10 @@ import java.util.regex.Pattern;
 		CLUSTERS.put("Letzte Anweisung im 'do'-Block", Pattern.compile("the last statement in a 'do' block must be an expression", Pattern.CASE_INSENSITIVE));
 		CLUSTERS.put("Ungültige Binding-Syntax", Pattern.compile("illegal binding of (?:built-in syntax|an existing name)", Pattern.CASE_INSENSITIVE));
 		CLUSTERS.put("Fehlende Klammern im Range-Ausdruck", Pattern.compile("a section must be enclosed in parentheses", Pattern.CASE_INSENSITIVE));
-		CLUSTERS.put("Ungültiges Enum-Deriving", Pattern.compile("can't make a derived instance of [''`]Enum.*[''`]", Pattern.CASE_INSENSITIVE));
+		CLUSTERS.put("Ungültiges Enum-Deriving", Pattern.compile(
+			"(?:can't|Can't) make a derived instance of [‘'`]?Enum\\b",
+			Pattern.CASE_INSENSITIVE
+		));
 		CLUSTERS.put("Ungültiges Deriving", Pattern.compile("illegal deriving item", Pattern.CASE_INSENSITIVE));
 
 		// fallback

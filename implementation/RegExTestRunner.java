@@ -7,7 +7,7 @@ import java.nio.file.*;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
-public class RegexTestRunner {
+public class RegExTestRunner {
     private static final String GHC_VERSION = "9.4.8";
     private static final String IMAGE_NAME = "safe-docker-ghc" + GHC_VERSION;
     private static final Map<String, String> CLUSTER_MAPPING = new HashMap<>();
@@ -69,7 +69,7 @@ public class RegexTestRunner {
     }
     
     public static void main(String[] args) {
-        RegexTestRunner runner = new RegexTestRunner();
+        RegExTestRunner runner = new RegExTestRunner();
         try {
             runner.runTests();
         } catch (Exception e) {

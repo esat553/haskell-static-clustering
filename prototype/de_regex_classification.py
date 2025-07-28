@@ -93,7 +93,11 @@ CLUSTERS = OrderedDict([
     ("Ungültige Binding-Syntax", re.compile(r"illegal binding of built-in syntax", re.IGNORECASE)),
     ("Ungültige Binding-Syntax", re.compile(r"illegal binding of (?:built-in syntax|an existing name)",
     re.IGNORECASE)),
-    ("Ungültiges Enum-Deriving", re.compile(r"can't make a derived instance of ['‘`]Enum", re.IGNORECASE)),
+    ("Ungültiges Enum-Deriving", re.compile(
+        r"can't make a derived instance of [‘'`]?Enum\b"
+        r"|Can't make a derived instance of [‘'`]?Enum\b",
+        re.IGNORECASE
+    )),
     ("Ungültiges Deriving", re.compile(r"illegal deriving item", re.IGNORECASE)),
 
     # Warnungen und Rest
