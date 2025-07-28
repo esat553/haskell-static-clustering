@@ -1,1 +1,0 @@
-Kannst du mir diese Vorlseungsfolien als ein txt zusammenschreiben, dass ich dann einem LLM in einem Prompt übergeben kann. Das txt soll den vollständigen PDF INhalt beinhalten ohne etwas zu kürzen. Du darfst höchstens etwas hinzugfügen, dass sich nur aus dem visuellen kontext erschließen würde aber nichts weglassen

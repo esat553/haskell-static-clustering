@@ -1,3 +1,0 @@
-Generiere mir zu dieser Haskell-Aufgabe 10 Fehlerhafte Lösungen die nicht kompilieren. Werde dabei kreativ und überlege welche unterschiedlichen Fehler von Studenten bei der Aufgabe wahrscheinlich gemacht werden. Generiere den vollständigen Code auch wenn der Fehler bereits in einer früheren Zeile auftritt.
-
-temperature: 2.0

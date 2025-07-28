@@ -1,0 +1,4 @@
+{
+        "instruction": "Generiere zu diesen Vorlseungsfolien eine typische aufgabe, die der Professor in einer Live Coding Session in der Vorlseung dran nehmen könnte. Werde dabei kreaiv aber es soll nur eine Aufgabe sein ohne unteraufgaben. Gleichzeigig kann die Aufgabe ruhig etwas anspruchsvoller sein. Die Aufgabenstellung soll sehr kurz und Prägnant sein und nicht um den heißen Brei herumreden. Die Augabe soll in einer 15 Minuten Live-Coding Session bearbeitbar sein. Die Aufgabe soll nicht von externen Bibliotheken abhängig sein. Die Aufgabe soll nicht von einem langen precode abhängig sein.",
+        "temperature": 1.0
+}
