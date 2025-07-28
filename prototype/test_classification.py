@@ -4,7 +4,7 @@ import subprocess
 from collections import Counter
 from de_regex_classification import classify, CLUSTERS
 
-GHC_VERSION = "9.4.8"
+GHC_VERSION = "8.10.2"
 IMAGE_NAME = f"safe-docker-ghc{GHC_VERSION}"
 CLUSTER_BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'list_of_clusters'))
 GHC_DOCKER_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'ghc_docker'))
@@ -22,8 +22,6 @@ def get_test_files():
             for filename in os.listdir(cluster_dir):
                 if filename.endswith(".hs"):
                     filepath = os.path.join(cluster_dir, filename)
-                    # Konvertiere den Verzeichnisnamen in den erwarteten Label-Namen
-                    # z.B. 'ambiguous_identifier' -> 'Mehrdeutiger Bezeichner'
                     expected_label = cluster_name.replace('_', ' ').title()
                     test_files.append(pytest.param(filepath, expected_label, id=f"{cluster_name}-{filename}"))
     return test_files
@@ -47,7 +45,6 @@ def compile_with_ghc(filepath: str) -> str:
 @pytest.fixture(scope="session", autouse=True)
 def build_docker_image():
     """Stellt sicher, dass das Docker-Image vor den Tests gebaut wird."""
-    # Überprüfen, ob das Image bereits existiert
     check_command = ["docker", "image", "inspect", IMAGE_NAME]
     if subprocess.run(check_command, capture_output=True).returncode == 0:
         print(f"Docker-Image '{IMAGE_NAME}' existiert bereits. Überspringe Build.")
@@ -58,10 +55,11 @@ def build_docker_image():
     if not os.path.exists(build_script):
         pytest.fail(f"build.sh Skript nicht gefunden unter: {build_script}")
         
-    result = subprocess.run([build_script, GHC_VERSION], capture_output=True, text=True, cwd=GHC_DOCKER_DIR)
+    print("Dies kann einige Minuten dauern...")
+    result = subprocess.run([build_script, GHC_VERSION], text=True, cwd=GHC_DOCKER_DIR)
     
     if result.returncode != 0:
-        pytest.fail(f"Docker-Image-Build fehlgeschlagen:\n{result.stdout}\n{result.stderr}")
+        pytest.fail(f"Docker-Image-Build fehlgeschlagen. Siehe Output oben für Details.")
     
     print("Docker-Image erfolgreich gebaut.")
 
@@ -159,11 +157,27 @@ test_data = get_test_files_with_mapping()
 classification_results = []
 compatibility_warnings = []
 
+def version_matches(current_version: str, required_versions: list) -> bool:
+    """Prüft, ob die aktuelle Version einer der geforderten Versionen entspricht."""
+    if not required_versions:
+        return True
+    
+    for required_version in required_versions:
+        if required_version.endswith(".*"):
+            major_version = required_version[:-2]
+            if current_version.startswith(major_version + "."):
+                return True
+        elif current_version == required_version:
+            return True
+    
+    return False
+
+
 @pytest.mark.parametrize("filepath, expected_label, cluster_info", test_data)
 def test_single_file_classification(filepath, expected_label, cluster_info):
     """Testet die Klassifikation für eine einzelne Haskell-Datei."""
     required_versions = cluster_info.get("versions")
-    if required_versions and GHC_VERSION not in required_versions:
+    if required_versions and not version_matches(GHC_VERSION, required_versions):
         warning_message = (
             f"SKIPPED: Cluster '{expected_label}' ist nur für GHC-Version(en) "
             f"{required_versions} relevant (aktuell: {GHC_VERSION})."
@@ -186,15 +200,28 @@ def test_cluster_coverage():
     """
     Überprüft, ob alle definierten Cluster (außer den letzten beiden)
     mindestens einmal von den Tests getroffen wurden.
+    Berücksichtigt dabei Cluster, die für die aktuelle GHC-Version nicht relevant sind.
     """
     pytest.main(args=['-q', '--collect-only']) 
     
     all_defined_clusters = list(CLUSTERS.keys())
     clusters_to_check = set(all_defined_clusters[:-2])
+
+    german_to_english = {info["label"]: key for key, info in MANUAL_MAPPING.items()}
+    
+    version_compatible_clusters = set()
+    for german_cluster_name in clusters_to_check:
+        english_key = german_to_english.get(german_cluster_name)
+        if english_key and english_key in MANUAL_MAPPING:
+            cluster_info = MANUAL_MAPPING[english_key]
+            required_versions = cluster_info.get("versions")
+            if required_versions and not version_matches(GHC_VERSION, required_versions):
+                continue 
+        version_compatible_clusters.add(german_cluster_name)
     
     used_clusters = set(classification_results)
     
-    missing_clusters = clusters_to_check - used_clusters
+    missing_clusters = version_compatible_clusters - used_clusters
     
     assert not missing_clusters, \
         f"Die folgenden Cluster wurden in den Tests nicht abgedeckt: {sorted(list(missing_clusters))}"

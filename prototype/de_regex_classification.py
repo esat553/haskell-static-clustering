@@ -22,9 +22,10 @@ CLUSTERS = OrderedDict([
     ("Falsche Funktionsarität", re.compile(
         r"applied to too (?:few|many) value arguments"
         r"|applied to \w+ value arguments,.*?\bbut its type.*?has only \w+"
-        r"|\bhas \w+ arguments, but its type .*? has only \w+",
-    re.IGNORECASE | re.DOTALL
-    )), 
+        r"|\bhas \w+ arguments, but its type .*? has only \w+"
+        r"|is applied to .*? (?:visible )?arguments,.*?but its type .*? has only",
+        re.IGNORECASE | re.DOTALL
+    )),
     ("Inkonsistenter Rückgabetyp", re.compile(r"Couldn't match type[:\s]*.*with[:\s]*.*In a case alternative", re.DOTALL | re.IGNORECASE)),
     ("Implementierung verletzt Typsignatur", re.compile(r"is a rigid type variable bound by", re.DOTALL | re.IGNORECASE)),
     ("Doppelte Signatur", re.compile(r"duplicate type signatures?", re.IGNORECASE)),
@@ -51,11 +52,13 @@ CLUSTERS = OrderedDict([
     ("Fehlendes Binding", re.compile(r"type signature.*lacks an accompanying binding", re.IGNORECASE | re.DOTALL)),
 
     # Konstruktoren / Arity
-    ("Falsche Arität für Konstruktor", re.compile(r"the constructor .* should have \d+ argument[s]?, but has been given \d+", re.IGNORECASE | re.DOTALL)),
+    ("Falsche Arität für Konstruktor", re.compile(
+        r"the (?:data )?constructor .* should have \d+ argument[s]?, but has been given \d+",
+        re.IGNORECASE | re.DOTALL)),
     ("Abweichende Arity", re.compile(r"equations for .* have different numbers of arguments", re.IGNORECASE | re.DOTALL)),
     ("Constraint erwartet, aber Typ erhalten", re.compile(r"expected a constraint, but .*(has kind|is a type)",re.IGNORECASE | re.DOTALL)),
     ("Ungültige Instanz-Signatur", re.compile(r"illegal type signature in instance declaration", re.IGNORECASE)),
-    ("Ungültige Typensignatur", re.compile(r"(invalid|illegal) type signature", re.IGNORECASE)),
+    ("Ungültige Typensignatur", re.compile(r"((invalid|illegal) type signature|Invalid data constructor .* in type signature)",re.IGNORECASE)),
 
     # Instanz-Fehler
     ("Überlappende Instanzen", re.compile(r"overlapping instances for", re.IGNORECASE)),
@@ -77,7 +80,7 @@ CLUSTERS = OrderedDict([
     ("Ungültige Instanz-Form", re.compile(r"illegal instance declaration|Use FlexibleInstances", re.IGNORECASE)),
     ("Falsche Anzahl von Typ-Argumenten", re.compile(r"expecting one more argument to .*has kind", re.IGNORECASE | re.DOTALL)),
     ("Kind-Konflikt", re.compile(r"expected kind .* but .* has kind", re.IGNORECASE | re.DOTALL)),
-    ("Kind-Konflikt (Constraint vs. Typ)", re.compile(r"expected (a constraint|a type), but .* has kind", re.IGNORECASE | re.DOTALL)),
+    ("Kind-Konflikt (Constraint vs. Typ)", re.compile(r"expected (a constraint|a type), but .* (?:has kind|is a (?:constraint|type))",re.IGNORECASE | re.DOTALL)),
     ("Mehrdeutiger Typ", re.compile(r"ambiguous type variable", re.IGNORECASE)),
     ("Constraint nicht erfüllbar", re.compile(r"could not deduce", re.IGNORECASE)),
     ("Flexible Kontexte benötigt", re.compile(r"non type-variable argument in the constraint", re.IGNORECASE)),
@@ -88,7 +91,8 @@ CLUSTERS = OrderedDict([
     ("Leerer do-Block", re.compile(r"empty\s+'do'\s+block", re.IGNORECASE)),
     ("Letzte Anweisung im 'do'-Block", re.compile(r"the last statement in a 'do' block must be an expression", re.IGNORECASE)),
     ("Ungültige Binding-Syntax", re.compile(r"illegal binding of built-in syntax", re.IGNORECASE)),
-    ("Fehlende Klammern im Range-Ausdruck", re.compile(r"a section must be enclosed in parentheses", re.IGNORECASE)),
+    ("Ungültige Binding-Syntax", re.compile(r"illegal binding of (?:built-in syntax|an existing name)",
+    re.IGNORECASE)),
     ("Ungültiges Enum-Deriving", re.compile(r"can't make a derived instance of ['‘`]Enum", re.IGNORECASE)),
     ("Ungültiges Deriving", re.compile(r"illegal deriving item", re.IGNORECASE)),
 
