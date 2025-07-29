@@ -1,0 +1,3 @@
+In this experiment, the source code and error message are parsed into an LLM, which classifies the root cause of the error. After that, the output text is embedded and clustered.
+
+NOTE: Since this was only an exploratory experiment, it is not well documented and was just a prototype, which did not achieve the expected success. I still wanted to share the experiment because it could be improved into a really good approach.

@@ -1,0 +1,12 @@
+joblib
+backoff
+numpy
+pandas
+umap-learn
+hdbscan
+streamlit
+plotly
+tqdm
+python-dotenv
+google.generativeai
+google.api_core
